@@ -2,7 +2,7 @@
 import random
 
 
-def makeTerrainData(n_points=10000):
+def makeTerrainData(n_points=1000):
 ###############################################################################
 ### make the toy dataset
     random.seed(42)
