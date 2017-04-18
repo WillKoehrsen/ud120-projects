@@ -78,8 +78,6 @@ maildir/heard-m/inbox/48.
 maildir/heard-m/inbox/67.
 maildir/heard-m/inbox/69.
 maildir/heard-m/inbox/76.
-maildir/hodge-j/deleted_items/206.
-maildir/hodge-j/inbox/436.
 maildir/jones-t/all_documents/10126.
 maildir/jones-t/all_documents/10138.
 maildir/jones-t/all_documents/10347.

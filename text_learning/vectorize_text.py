@@ -7,6 +7,7 @@ import sys
 
 sys.path.append( "../tools/" )
 from parse_out_email_text import parseOutText
+from sklearn.feature_extraction.text import CountVectorizer
 
 """
     Starter code to process the emails from Sara and Chris to extract
@@ -36,7 +37,6 @@ word_data = []
 ### can iterate your modifications quicker
 temp_counter = 0
 
-
 for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         ### only look at first 200 emails when developing
@@ -48,14 +48,19 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             email = open(path, "r")
 
             ### use parseOutText to extract the text from the opened email
-
+            text = parseOutText(email)
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
-
+            signature_words = ["sara", "shackleton", "chris", "germani"]
+            [text.replace(signature_word, "") for signature_word in signature_words]
             ### append the text to word_data
-
+            word_data.append(text)
             ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
+            if from_person == "sara":
+                from_data.append(0)
 
+            else:
+                from_data.append(1)
 
             email.close()
 
