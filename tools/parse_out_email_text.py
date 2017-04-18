@@ -28,19 +28,15 @@ def parseOutText(f):
         text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
 
         stemmer = SnowballStemmer("english")
-        words = text_string
 
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-        split_words = words.split()
+        split_words = text_string.split()
         words = []
         for word in split_words:
             word = stemmer.stem(word)
             words.append(word)
-
-
-
 
     words = " ".join(words)
     return words
