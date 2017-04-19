@@ -1,7 +1,12 @@
 #!/usr/bin/python
-
+from __future__ import print_function
 import pickle
 import numpy
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import accuracy_score
+
 numpy.random.seed(42)
 
 
@@ -19,10 +24,10 @@ authors = pickle.load( open(authors_file, "r") )
 ### remainder go into training)
 ### feature matrices changed to dense representations for compatibility with
 ### classifier functions in versions 0.15.2 and earlier
-from sklearn import cross_validation
-features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(word_data, authors, test_size=0.1, random_state=42)
 
-from sklearn.feature_extraction.text import TfidfVectorizer
+features_train, features_test, labels_train, labels_test = train_test_split(word_data, authors, test_size=0.1, random_state=42)
+
+
 vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
                              stop_words='english')
 features_train = vectorizer.fit_transform(features_train)
@@ -38,6 +43,12 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+clf = DecisionTreeClassifier()
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+accuracy = accuracy_score(labels_test, pred)
+print('Accuracy on testing set = {:.4f}'.format(accuracy))
+print(len(features_train))
 
 
 
