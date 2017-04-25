@@ -103,7 +103,6 @@ def main():
     ### Run testing script
     clf = test_classifier(clf, dataset, feature_list)
     return clf
-    
+
 if __name__ == '__main__':
     clf = main()
-    print clf.feature_importances_
