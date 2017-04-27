@@ -7,7 +7,7 @@
     be written to my_classifier.pkl, my_dataset.pkl, and
     my_feature_list.pkl, respectively
 
-    that process should happen at the end of poi_id.py
+    that process should happen at the end of poi_id.py  
 """
 
 import pickle
@@ -25,7 +25,7 @@ RESULTS_FORMAT_STRING = "\tTotal predictions: {:4d}\tTrue positives: {:4d}\tFals
 def test_classifier(clf, dataset, feature_list, folds = 1000):
     data = featureFormat(dataset, feature_list, sort_keys = True)
     labels, features = targetFeatureSplit(data)
-    cv = StratifiedShuffleSplit(random_state = 42)
+    cv = StratifiedShuffleSplit(random_state=42)
     true_negatives = 0
     false_negatives = 0
     true_positives = 0
@@ -103,7 +103,6 @@ def main():
     clf, dataset, feature_list = load_classifier_and_data()
     ### Run testing script
     test_classifier(clf, dataset, feature_list)
-    
 
 if __name__ == '__main__':
-    main()
+    clf = main()
