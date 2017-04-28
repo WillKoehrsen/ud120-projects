@@ -1,0 +1,2 @@
+Project 5 submission readme. All sources used in the investigation have been linked to in the Jupyter Notebook. All answers to the questions are found in the Jupyter Notebook. 
+All code was written in a Jupyter Notebook and transferred to the poi_id.py script. 
